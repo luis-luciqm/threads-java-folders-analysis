@@ -22,6 +22,8 @@ public class ObervaPasta extends Thread{
                 for (Path file: stream) {
                     arquivos += (file.getFileName() + ";");
                     
+                    System.out.println("Movendo " + file.getFileName());
+                    moveArquivo("/home/luis/NetBeansProjects/Monitoring/Pasta1/" + file.getFileName());
 //                    System.out.println(file);
                     
 //                    file.getFileName() exibe apenas o arquivo
@@ -55,9 +57,6 @@ public class ObervaPasta extends Thread{
             if(arquivos.equals("")){
                 System.out.println("Nada");
                 
-            }else{ // retirar o else após mover o arquivo com a função, n tem sentido deixar
-                System.out.println(arquivos);
-                moveArquivo("/home/luis/NetBeansProjects/Monitoring/Pasta1/" + arquivos); //pasta2 ou 1 ?f
             }
             
             /* perai, antes bora ver se ele move, como escolho onde ele vai mover?
