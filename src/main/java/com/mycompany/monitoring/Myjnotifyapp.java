@@ -25,7 +25,8 @@ public class Myjnotifyapp extends Thread{
     public static void main(String[] args) throws IOException {
 
         ObervaPasta op = new ObervaPasta();
-        op.getFileNameFolder();
+        String pasta1 = op.newDiretorio;
+        op.getFileNameFolder(pasta1);
 
     }
 }
