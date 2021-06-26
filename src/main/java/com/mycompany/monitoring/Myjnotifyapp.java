@@ -11,36 +11,21 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
-public class Myjnotifyapp{
-    
-    public static void main(String[] args) throws IOException {
-        String arquivos = getFileNameFolder();
-        
-        if(arquivos.equals("")){
-            System.out.println("Nenhum arquivo encontrado!");
-        }else{
-            System.out.println("Arquivos:\n-------\n " + arquivos);
-        }
-                
+public class Myjnotifyapp extends Thread{
+    private String nome;
+    public Myjnotifyapp(String nome){
+        this.nome  = nome;
+        new Thread(this, nome).start();
     }
     
-    public static String getFileNameFolder(){
-        String arquivos = "";
-        int cont = 0;
-        
-        try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get("/home/luis/Documentos/NovaPasta"))) {
-            for (Path file: stream) {
-                arquivos += (file.getFileName() + ";");
-                cont++;   
-            }
-            
-        } catch (IOException | DirectoryIteratorException ex) {
-            System.err.println(ex);
-        }
-        if(cont == 0)
-            return "";
-        return arquivos;
+    public static void main(String[] args) throws IOException {
+
+        ObervaPasta op = new ObervaPasta();
+        op.getFileNameFolder();
+
     }
 }
