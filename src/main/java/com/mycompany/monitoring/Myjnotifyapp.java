@@ -5,6 +5,7 @@
  */
 package com.mycompany.monitoring;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryIteratorException;
 import java.nio.file.DirectoryStream;
@@ -25,8 +26,8 @@ public class Myjnotifyapp extends Thread{
     public static void main(String[] args) throws IOException {
 
         ObervaPasta op = new ObervaPasta();
-        String pasta1 = op.newDiretorio;
-        op.getFileNameFolder(pasta1);
-
+        String pasta1 = op.newDiretorio1;
+        File pasta2 = op.newDiretorio2;
+        op.getFileNameFolder(pasta1, pasta2);
     }
 }

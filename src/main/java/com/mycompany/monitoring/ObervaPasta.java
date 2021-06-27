@@ -11,10 +11,10 @@ import java.util.logging.Logger;
 
 public class ObervaPasta extends Thread{
     
-    static String newDiretorio = "/home/luis/NetBeansProjects/Monitoring/Pasta1";
+    static String newDiretorio1 = "/home/luis/NetBeansProjects/Monitoring/Pasta1/";
     static File newDiretorio2 = new File("/home/luis/NetBeansProjects/Monitoring/Pasta2");
     
-    public static void getFileNameFolder(String newDiretorio1){
+    public static void getFileNameFolder(String newDiretorio1, File newDiretorio2){
         
         while(true){
             String arquivos = "";
@@ -24,7 +24,7 @@ public class ObervaPasta extends Thread{
                     arquivos += (file.getFileName() + ";");
                     
                     System.out.println("Movendo " + file.getFileName());
-                    moveArquivo("/home/luis/NetBeansProjects/Monitoring/Pasta1/" + file.getFileName(), newDiretorio2);
+                    moveArquivo(newDiretorio1 + file.getFileName(), newDiretorio2);
 //                    System.out.println(file);
                     
 //                    file.getFileName() exibe apenas o arquivo
