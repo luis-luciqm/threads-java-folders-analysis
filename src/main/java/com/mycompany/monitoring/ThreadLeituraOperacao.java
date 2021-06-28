@@ -19,7 +19,7 @@ public class ThreadLeituraOperacao extends Thread{
     
     // usando OO para usar método que observa a pasta
     
-    ObervaPasta ob = new ObervaPasta();
+//    ObervaPasta ob = new ObervaPasta();
     
     
 }

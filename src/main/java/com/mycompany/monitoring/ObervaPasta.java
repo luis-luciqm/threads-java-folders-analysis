@@ -11,10 +11,10 @@ import java.util.logging.Logger;
 
 public class ObervaPasta extends Thread{
     
-    static String newDiretorio1 = "/home/luis/NetBeansProjects/Monitoring/Pasta1/";
-    static File newDiretorio2 = new File("/home/luis/NetBeansProjects/Monitoring/Pasta2");
+    String newDiretorio1 = "/home/luis/NetBeansProjects/Monitoring/Pasta1/";
+    File newDiretorio2 = new File("/home/luis/NetBeansProjects/Monitoring/Pasta2");
     
-    public static void getFileNameFolder(String newDiretorio1, File newDiretorio2){
+    public void getFileNameFolder(String newDiretorio1, File newDiretorio2){
         
         while(true){
             String arquivos = "";
@@ -23,7 +23,8 @@ public class ObervaPasta extends Thread{
                 for (Path file: stream) {
                     arquivos += (file.getFileName() + ";");
                     
-                    System.out.println("Movendo " + file.getFileName());
+                    System.out.println("\nMovendo " + file.getFileName());
+                    
                     moveArquivo(newDiretorio1 + file.getFileName(), newDiretorio2);
 //                    System.out.println(file);
                     
@@ -45,7 +46,7 @@ public class ObervaPasta extends Thread{
 //                    System.out.println(arquivos);
 
                     try{
-                        Thread.sleep(6000);
+                        Thread.sleep(4000);
                     }catch(InterruptedException excep){
                         System.out.println(excep.getMessage());
                     }
@@ -76,7 +77,7 @@ public class ObervaPasta extends Thread{
             * */
             
             try {
-                Thread.sleep(3000);
+                Thread.sleep(2000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Myjnotifyapp.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -97,7 +98,7 @@ public class ObervaPasta extends Thread{
     }
 
 
-    public static void moveArquivo(String nome, File destino){ //
+    public void moveArquivo(String nome, File destino){ //
         // Arquivo a ser movido, tem que ser static msm
         File arquivo = new File(nome);
 
