@@ -29,5 +29,6 @@ public class Myjnotifyapp extends Thread{
         String pasta1 = op.newDiretorio1;
         File pasta2 = op.newDiretorio2;
         op.getFileNameFolder(pasta1, pasta2);
+
     }
 }

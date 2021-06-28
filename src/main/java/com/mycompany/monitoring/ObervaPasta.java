@@ -11,38 +11,51 @@ import java.util.logging.Logger;
 
 public class ObervaPasta extends Thread{
     
-    String newDiretorio1 = "/home/luis/NetBeansProjects/Monitoring/Pasta1/";
-    File newDiretorio2 = new File("/home/luis/NetBeansProjects/Monitoring/Pasta2");
-    
+    String newDiretorio1 = new File(".").getCanonicalPath()+"/Pasta1/";
+    File newDiretorio2;
+
+    {
+        try {
+            newDiretorio2 = new File(new File(".").getCanonicalPath() + "/Pasta2");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ObervaPasta() throws IOException {
+    }
+
     public void getFileNameFolder(String newDiretorio1, File newDiretorio2){
-        
+
+//        new File(".").getCanonicalPath());
+
         while(true){
             String arquivos = "";
 
             try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(newDiretorio1))) {
                 for (Path file: stream) {
                     arquivos += (file.getFileName() + ";");
-                    
+
                     System.out.println("\nMovendo " + file.getFileName());
-                    
+
                     moveArquivo(newDiretorio1 + file.getFileName(), newDiretorio2);
 //                    System.out.println(file);
-                    
+
 //                    file.getFileName() exibe apenas o arquivo
 //                    file exibe o caminho + o arquivo.txt
-                    
+
                     /*
-                    
+
                     cada iteração, file é APENAS UM ARQUIVO
-                    logica: pegar cada arquivo de uma vez só
-                    esperar x segundos para administrar esse arquivo, uns 10 segundos
-                    
-                    pegando o arquivo, devemos move-lo para a pasta 2
-                    
+                    logica: pegar cada arquivo de uma vez só: -OK-
+                    esperar x segundos para administrar esse arquivo, uns 10 segundos: -OK-
+
+                    pegando o arquivo, devemos move-lo para a pasta 2: OK
+
                     fazer a leitura e operação matematica
-                    
+
                     */
-                    
+
 //                    System.out.println(arquivos);
 
                     try{
@@ -50,17 +63,18 @@ public class ObervaPasta extends Thread{
                     }catch(InterruptedException excep){
                         System.out.println(excep.getMessage());
                     }
-                    
+
                 }
+//                System.out.println(". -> " + new File(".").getCanonicalPath());
             } catch (IOException | DirectoryIteratorException ex) {
                 System.err.println(ex);
             }
 
             if(arquivos.equals("")){
                 System.out.println("Nenhum arquivo na pasta");
-                
+
             }
-            
+
             /* perai, antes bora ver se ele move, como escolho onde ele vai mover?
             *
             *
@@ -75,7 +89,7 @@ public class ObervaPasta extends Thread{
             * 5 NA PASTA 3 TEM Q VERIFICAR SE EXISTE UM ARQUIVO CHAMADO final.txt SE NAO EXISTIR TEM Q CRIAR
             * 6 O ARQUIVO final.txt DEVE SALVAR OS RESULTADOS DA SEGUINTE FORMA (arq1.txt: 45) (arq2.txt : 120)
             * */
-            
+
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException ex) {
@@ -99,6 +113,7 @@ public class ObervaPasta extends Thread{
 
 
     public void moveArquivo(String nome, File destino){ //
+
         // Arquivo a ser movido, tem que ser static msm
         File arquivo = new File(nome);
 
