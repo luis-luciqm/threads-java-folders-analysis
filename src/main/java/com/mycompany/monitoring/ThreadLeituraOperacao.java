@@ -41,13 +41,17 @@ public class ThreadLeituraOperacao extends Thread implements GetFile{
                     
                     String leituraArquivo = lerArquivo(arquivos);
                     
-                    for(int i = 0; i < leituraArquivo.length(); i++){
-                        somatorio += Integer.parseInt(String.valueOf(leituraArquivo.charAt(i)));   
+                    try{
+                        for(int i = 0; i < leituraArquivo.length(); i++){
+                            somatorio += Integer.parseInt(String.valueOf(leituraArquivo.charAt(i)));   
+                        }
+                        escrita = file.getFileName() + ": " + somatorio;
+
+                        escreve(escrita, newDiretorio2);
+                        Files.delete(file);
+                    }catch(NumberFormatException e){
+                        System.out.println("Não foi possivel analisar o arquivo, verifique se os caracteres são numeros!");
                     }
-                    escrita = file.getFileName() + ": " + somatorio;
-                    
-                    escreve(escrita, newDiretorio2);
-                    Files.delete(file);
                     
                     try{
                         Thread.sleep(5000);

@@ -55,7 +55,6 @@ public class ObervaPasta extends Thread{
 
             if(arquivos.equals("")){
                 System.out.println("Nenhum arquivo na pasta1");
-
             }
             
             try {
