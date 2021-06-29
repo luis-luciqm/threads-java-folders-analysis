@@ -11,9 +11,14 @@ import java.util.logging.Logger;
 
 public class ObervaPasta extends Thread{
     
+    private String nome;
+    public ObervaPasta(String nome) throws IOException{
+        this.nome = nome;
+        new Thread(this, nome).start();
+    }
+    
     String newDiretorio1 = new File(".").getCanonicalPath()+"/Pasta1/";
     File newDiretorio2;
-
     {
         try {
             newDiretorio2 = new File(new File(".").getCanonicalPath() + "/Pasta2");
@@ -21,14 +26,13 @@ public class ObervaPasta extends Thread{
             e.printStackTrace();
         }
     }
-
-    public ObervaPasta() throws IOException {
+    
+    @Override
+    public void run(){
+        getFileNameFolder(newDiretorio1, newDiretorio2);
     }
 
     public void getFileNameFolder(String newDiretorio1, File newDiretorio2){
-
-//        new File(".").getCanonicalPath());
-
         while(true){
             String arquivos = "";
 
@@ -59,19 +63,19 @@ public class ObervaPasta extends Thread{
 //                    System.out.println(arquivos);
 
                     try{
+                        System.out.println("Pausando a Thread " + this.nome);
                         Thread.sleep(4000);
                     }catch(InterruptedException excep){
                         System.out.println(excep.getMessage());
                     }
 
                 }
-//                System.out.println(". -> " + new File(".").getCanonicalPath());
             } catch (IOException | DirectoryIteratorException ex) {
                 System.err.println(ex);
             }
 
             if(arquivos.equals("")){
-                System.out.println("Nenhum arquivo na pasta");
+                System.out.println("Nenhum arquivo na pasta1");
 
             }
 
@@ -91,37 +95,20 @@ public class ObervaPasta extends Thread{
             * */
 
             try {
-                Thread.sleep(2000);
+                System.out.println("Pausando a Thread " + this.nome);
+                Thread.sleep(5000);
             } catch (InterruptedException ex) {
                 Logger.getLogger(Myjnotifyapp.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
-    
-//    inicio função escrever1()
-    public static void escreve(){
-        FileWriter fw = null;
-        try{
-            fw = new FileWriter("ARQUIVO_AQUI.txt");
-            fw.write("kss"); // aqui será escrito o arquivo que foi lido anteriormente
-            fw.close();
-            System.out.println("Salvo com sucesso");
-        }catch(IOException exe){
-            System.out.println("Erro ao escrever no arquivo: " + exe.getMessage());
-        }
-    }
 
-
-    public void moveArquivo(String nome, File destino){ //
-
-        // Arquivo a ser movido, tem que ser static msm
+    public void moveArquivo(String nome, File destino){
         File arquivo = new File(nome);
 
         if (!arquivo.exists()) {
             System.out.println("Arquivo não encontrado");
         } else {
-
-            // Move o arquivo para o novo diretorio
             boolean sucesso = arquivo.renameTo(new File(destino, arquivo.getName()));
             if (sucesso) {
                 System.out.println("Arquivo movido para '" + destino.getAbsolutePath() + "'");

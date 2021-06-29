@@ -17,18 +17,16 @@ import java.util.logging.Logger;
 
 
 public class Myjnotifyapp extends Thread{
-    private String nome;
-    public Myjnotifyapp(String nome){
-        this.nome  = nome;
-        new Thread(this, nome).start();
-    }
     
     public static void main(String[] args) throws IOException {
 
-        ObervaPasta op = new ObervaPasta();
-        String pasta1 = op.newDiretorio1;
-        File pasta2 = op.newDiretorio2;
-        op.getFileNameFolder(pasta1, pasta2);
+        ObervaPasta op = new ObervaPasta("#1");
+//        String pasta1 = op.newDiretorio1;
+//        File pasta2 = op.newDiretorio2;
+//        op.getFileNameFolder(pasta1, pasta2);
+
+        ThreadLeituraOperacao tlp = new ThreadLeituraOperacao("#2");
+
 
     }
 }
