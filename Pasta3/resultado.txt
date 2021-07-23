@@ -1,1 +1,4 @@
-teste122.txt: 15
+resultado.txt: 21924
+new.txt: 1024632
+ArquivoTeste.txt: 19224
+New Arquivo.txt: 9720

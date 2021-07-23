@@ -111,7 +111,7 @@ public class ThreadLeituraOperacao extends Thread implements GetFile{
             fw = new FileWriter(arquivo, true);
             fw.write(valor); // aqui será escrito o arquivo que foi lido anteriormente
             fw.close();
-            System.out.println("Salvo com sucesso");
+            System.out.println("Salvo com sucesso\n");
         }catch(IOException exe){
             System.out.println("Erro ao escrever no arquivo: " + exe.getMessage());
         }

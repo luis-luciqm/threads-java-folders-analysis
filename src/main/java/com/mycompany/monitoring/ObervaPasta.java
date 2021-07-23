@@ -7,6 +7,8 @@ import java.nio.file.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.JOptionPane;
+
 //import static java.lang.Thread.sleep;
 
 public class ObervaPasta extends Thread{
