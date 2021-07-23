@@ -14,3 +14,6 @@
 <b><br><h2 style="text-align: center;">Exemplo de execução:</h2></b>
 <img style="margin-left: 23%;" src="Monitoring.gif" alt="Gif de execução">
 
+<b><h2>Características</h2></b>
+<p>As classes BufferedReader e FileWriter usadas na aplicação servem, respectivamente, para Leitura e Escrita de dados em arquivo. São componentes (Filters) que conseguem ler e transforma em dados legiveis. A saída será conduzida para o fluxo de entrada atráves dos conectores (Pipes).</p>
+
