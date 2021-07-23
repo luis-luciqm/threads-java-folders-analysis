@@ -17,3 +17,6 @@
 <b><h2>Características</h2></b>
 <p>As classes BufferedReader e FileWriter usadas na aplicação servem, respectivamente, para Leitura e Escrita de dados em arquivo. São componentes (Filters) que conseguem ler e transforma em dados legiveis. A saída será conduzida para o fluxo de entrada atráves dos conectores (Pipes).</p>
 
+<b><h2>Fluxo de dados da Aplicação</h2></b>
+<b>Observar a Pasta1 -> Transferir arquivo da Pasta1 para a pasta2 -> Ler o arquivo da Pasta2, realizar somatório, e Salvar os dados no arquivo da Pasta3 -> Deletar arquivo da Pasta2</b>
+
