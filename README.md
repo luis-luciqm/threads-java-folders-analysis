@@ -7,11 +7,6 @@
         <p style="margin-left: 40px;"> - Ler o arquivo da Pasta 2;</p>
         <p style="margin-left: 40px;"> - Realizar um somatório dos dados lidos no presente aquivo lido;</p>
         <p style="margin-left: 40px;"> - Salvar os dados (nome do arquivo lido e valor do somatório) no arquivo da Pasta 3, e deletar o arquivo lido da Pasta 2;</p>
-<br><h3>Exemplo de execução:</h3>
-[Alt Text](Monitoring.gif)
-
-
-        //![Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif) -->
-        <!-- [Alt Text](https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif) -->
-        
+<br><h2 style="text-align: center;">Exemplo de execução:</h2>
+<img style="margin-left: 23%;" src="Monitoring.gif" alt="Gif de execução">
 
