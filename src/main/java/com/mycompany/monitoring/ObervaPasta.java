@@ -13,14 +13,14 @@ import javax.swing.JOptionPane;
 
 public class ObervaPasta extends Thread{
     
+    private String newDiretorio1 = new File(".").getCanonicalPath()+"/Pasta1/";
+    private File newDiretorio2 = new File(new File(".").getCanonicalPath() + "/Pasta2");
     private String nome;
+    
     public ObervaPasta(String nome) throws IOException{
         this.nome = nome;
         new Thread(this, nome).start();
     }
-    
-    String newDiretorio1 = new File(".").getCanonicalPath()+"/Pasta1/";
-    File newDiretorio2 = new File(new File(".").getCanonicalPath() + "/Pasta2");
     
     @Override
     public void run(){

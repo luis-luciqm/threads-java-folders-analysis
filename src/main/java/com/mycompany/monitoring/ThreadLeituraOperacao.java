@@ -20,13 +20,14 @@ import java.util.logging.Logger;
  */
 public class ThreadLeituraOperacao extends Thread implements GetFile{
     
+    private String newDiretorio1 = new File(".").getCanonicalPath()+"/Pasta2/";
+    private String newDiretorio2 = new File(".").getCanonicalPath()+"/Pasta3/resultado.txt";
     private String nome;
+    
     public ThreadLeituraOperacao(String nome) throws IOException{
         this.nome = nome;
         new Thread(this, nome).start();
     }
-    String newDiretorio1 = new File(".").getCanonicalPath()+"/Pasta2/";
-    String newDiretorio2 = new File(".").getCanonicalPath()+"/Pasta3/resultado.txt";
  
     @Override
     public void getFileNameFolder(String newDiretorio1, String newDiretorio2) {
